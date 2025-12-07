@@ -5,7 +5,7 @@ import {
   Box,
   Button,
   Collapse,
-  Grid2,
+  Grid,
   List,
   ListItemButton,
   ListItemIcon,
@@ -1215,8 +1215,8 @@ const Category = () => {
                   <Typography sx={{ fontWeight: "bold" }}>Rom</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Grid2 container spacing={2}>
-                    <Grid2 item>
+                  <Grid container spacing={2}>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtn3264GB}
                         sx={{
@@ -1233,8 +1233,8 @@ const Category = () => {
                       >
                         32GB và 64GB
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtn128256GB}
                         sx={{
@@ -1251,8 +1251,8 @@ const Category = () => {
                       >
                         128GB và 256GB
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtn512GB}
                         sx={{
@@ -1269,8 +1269,8 @@ const Category = () => {
                       >
                         512GB
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtn1TB}
                         sx={{
@@ -1285,8 +1285,8 @@ const Category = () => {
                       >
                         1TB
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtn2TB}
                         sx={{
@@ -1301,8 +1301,8 @@ const Category = () => {
                       >
                         2TB
                       </Button>
-                    </Grid2>
-                  </Grid2>
+                    </Grid>
+                  </Grid>
                 </AccordionDetails>
               </Accordion>
             </Box>
@@ -1313,8 +1313,8 @@ const Category = () => {
                   <Typography sx={{ fontWeight: "bold" }}>Ram</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Grid2 container spacing={2}>
-                    <Grid2 item>
+                  <Grid container spacing={2}>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtn48GB}
                         sx={{
@@ -1331,8 +1331,8 @@ const Category = () => {
                       >
                         4GB và 8GB
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtn1216GB}
                         sx={{
@@ -1349,8 +1349,8 @@ const Category = () => {
                       >
                         12GB và 16GB
                       </Button>
-                    </Grid2>
-                  </Grid2>
+                    </Grid>
+                  </Grid>
                 </AccordionDetails>
               </Accordion>
             </Box>
@@ -1360,8 +1360,8 @@ const Category = () => {
                   <Typography sx={{ fontWeight: "bold" }}>Chip</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Grid2 container spacing={2}>
-                    <Grid2 item>
+                  <Grid container spacing={2}>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnMedia}
                         sx={{
@@ -1378,8 +1378,8 @@ const Category = () => {
                       >
                         MediaTek
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnQual}
                         sx={{
@@ -1396,8 +1396,8 @@ const Category = () => {
                       >
                         Qualcomm
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnApple}
                         sx={{
@@ -1414,8 +1414,8 @@ const Category = () => {
                       >
                         Apple
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnSS}
                         sx={{
@@ -1430,8 +1430,8 @@ const Category = () => {
                       >
                         SamSung
                       </Button>
-                    </Grid2>
-                  </Grid2>
+                    </Grid>
+                  </Grid>
                 </AccordionDetails>
               </Accordion>
             </Box>
@@ -1484,8 +1484,8 @@ const Category = () => {
                   <Typography sx={{ fontWeight: "bold" }}>Hãng</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Grid2 container spacing={2}>
-                    <Grid2 item>
+                  <Grid container spacing={2}>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnApleEar}
                         sx={{
@@ -1502,8 +1502,8 @@ const Category = () => {
                       >
                         Apple
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnSSEar}
                         sx={{
@@ -1520,8 +1520,8 @@ const Category = () => {
                       >
                         SamSung
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnXiaomiEar}
                         sx={{
@@ -1538,8 +1538,8 @@ const Category = () => {
                       >
                         Xiaomi
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnSonyEar}
                         sx={{
@@ -1556,8 +1556,8 @@ const Category = () => {
                       >
                         Sony
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnHuaweiEar}
                         sx={{
@@ -1574,8 +1574,8 @@ const Category = () => {
                       >
                         Huawei
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnOtherEar}
                         sx={{
@@ -1592,8 +1592,8 @@ const Category = () => {
                       >
                         Các hãng khác
                       </Button>
-                    </Grid2>
-                  </Grid2>
+                    </Grid>
+                  </Grid>
                 </AccordionDetails>
               </Accordion>
             </Box>
@@ -1605,8 +1605,8 @@ const Category = () => {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Grid2 container spacing={2}>
-                    <Grid2 item>
+                  <Grid container spacing={2}>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnBlue}
                         sx={{
@@ -1623,8 +1623,8 @@ const Category = () => {
                       >
                         Bluetooth
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnWire}
                         sx={{
@@ -1641,8 +1641,8 @@ const Category = () => {
                       >
                         wireless
                       </Button>
-                    </Grid2>
-                  </Grid2>
+                    </Grid>
+                  </Grid>
                 </AccordionDetails>
               </Accordion>
             </Box>
@@ -1697,8 +1697,8 @@ const Category = () => {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Grid2 container spacing={2}>
-                    <Grid2 item>
+                  <Grid container spacing={2}>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnTypeC}
                         sx={{
@@ -1713,8 +1713,8 @@ const Category = () => {
                       >
                         TypeC
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnUSBA}
                         sx={{
@@ -1729,8 +1729,8 @@ const Category = () => {
                       >
                         Usb-a
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnUSBB}
                         sx={{
@@ -1745,8 +1745,8 @@ const Category = () => {
                       >
                         usb-b
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnLightNing}
                         sx={{
@@ -1763,8 +1763,8 @@ const Category = () => {
                       >
                         lightning
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnMicro}
                         sx={{
@@ -1781,8 +1781,8 @@ const Category = () => {
                       >
                         micro_usb
                       </Button>
-                    </Grid2>
-                  </Grid2>
+                    </Grid>
+                  </Grid>
                 </AccordionDetails>
               </Accordion>
             </Box>
@@ -1792,8 +1792,8 @@ const Category = () => {
                   <Typography sx={{ fontWeight: "bold" }}>Độ dài</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Grid2 container spacing={2}>
-                    <Grid2 item>
+                  <Grid container spacing={2}>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnLess1M}
                         sx={{
@@ -1810,8 +1810,8 @@ const Category = () => {
                       >
                         dưới 1m
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtn12M}
                         sx={{
@@ -1824,8 +1824,8 @@ const Category = () => {
                       >
                         1m-2m
                       </Button>
-                    </Grid2>
-                  </Grid2>
+                    </Grid>
+                  </Grid>
                 </AccordionDetails>
               </Accordion>
             </Box>
@@ -1879,8 +1879,8 @@ const Category = () => {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Grid2 container spacing={2}>
-                    <Grid2 item>
+                  <Grid container spacing={2}>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnLess1000}
                         sx={{
@@ -1897,8 +1897,8 @@ const Category = () => {
                       >
                         dưới 10.000 mah
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtn1000}
                         sx={{
@@ -1915,8 +1915,8 @@ const Category = () => {
                       >
                         10.000 mah
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtn2000}
                         sx={{
@@ -1933,8 +1933,8 @@ const Category = () => {
                       >
                         20.000 mah
                       </Button>
-                    </Grid2>
-                  </Grid2>
+                    </Grid>
+                  </Grid>
                 </AccordionDetails>
               </Accordion>
             </Box>
@@ -1946,8 +1946,8 @@ const Category = () => {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Grid2 container spacing={2}>
-                    <Grid2 item>
+                  <Grid container spacing={2}>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnWireless}
                         sx={{
@@ -1964,8 +1964,8 @@ const Category = () => {
                       >
                         wireless
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnMicroUSB}
                         sx={{
@@ -1982,8 +1982,8 @@ const Category = () => {
                       >
                         micro usb
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnUSBC}
                         sx={{
@@ -2000,8 +2000,8 @@ const Category = () => {
                       >
                         usb-c
                       </Button>
-                    </Grid2>
-                  </Grid2>
+                    </Grid>
+                  </Grid>
                 </AccordionDetails>
               </Accordion>
             </Box>
@@ -2013,8 +2013,8 @@ const Category = () => {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Grid2 container spacing={2}>
-                    <Grid2 item>
+                  <Grid container spacing={2}>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnWirelessOut}
                         sx={{
@@ -2031,8 +2031,8 @@ const Category = () => {
                       >
                         wireless
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnMicroUSBA}
                         sx={{
@@ -2049,8 +2049,8 @@ const Category = () => {
                       >
                         usb-a
                       </Button>
-                    </Grid2>
-                  </Grid2>
+                    </Grid>
+                  </Grid>
                 </AccordionDetails>
               </Accordion>
             </Box>
@@ -2062,8 +2062,8 @@ const Category = () => {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Grid2 container spacing={2}>
-                    <Grid2 item>
+                  <Grid container spacing={2}>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnFast1030}
                         sx={{
@@ -2080,8 +2080,8 @@ const Category = () => {
                       >
                         từ 10-30W
                       </Button>
-                    </Grid2>
-                    <Grid2 item>
+                    </Grid>
+                    <Grid item>
                       <Button
                         onClick={handleClickBtnFast3160}
                         sx={{
@@ -2098,8 +2098,8 @@ const Category = () => {
                       >
                         Từ 31-60W
                       </Button>
-                    </Grid2>
-                  </Grid2>
+                    </Grid>
+                  </Grid>
                 </AccordionDetails>
               </Accordion>
             </Box>
@@ -2178,3 +2178,4 @@ const Category = () => {
 };
 
 export default Category;
+

@@ -11,11 +11,10 @@ import {
 } from "@mui/material";
 import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import qrImage from "../assets/QR.png";
+import faceImage from "../assets/me.png";
 
 const ZALO_LINK = "https://zalo.me/4204593961068390595";
-const qrUrl = `https://chart.googleapis.com/chart?chs=320x320&cht=qr&chl=${encodeURIComponent(
-  ZALO_LINK
-)}`;
 
 const ZaloContact = () => {
   const openZalo = () => {
@@ -44,15 +43,14 @@ const ZaloContact = () => {
             <Stack spacing={2} flex={1} minWidth={0}>
               <Stack direction="row" spacing={2} alignItems="center">
                 <Avatar
-                  alt="Zalo OA"
-                  sx={{ width: 72, height: 72, bgcolor: "#d3001a", fontWeight: 800, fontSize: 26 }}
-                >
-                  Z
-                </Avatar>
+                  alt="Mai Lưu Hữu Vinh"
+                  src={faceImage}
+                  sx={{ width: 72, height: 72, bgcolor: "#d3001a" }}
+                />
                 <Box>
                   <Stack direction="row" spacing={1} alignItems="center">
                     <Typography variant="h5" fontWeight={800}>
-                      CellphoneS Zalo OA
+                      Mai Lưu Hữu Vinh
                     </Typography>
                     <Chip label="Official" size="small" color="success" variant="filled" />
                   </Stack>
@@ -116,7 +114,7 @@ const ZaloContact = () => {
                   - Mở ứng dụng Zalo, chọn tab <strong>Khám phá</strong> / <strong>QR</strong> và quét mã bên phải.
                 </Typography>
                 <Typography variant="body2" sx={{ color: "#475467", lineHeight: 1.6 }}>
-                  - Hoặc nhấn nút "Nhắn Zalo" để mở trực tiếp OA trong trình duyệt.
+                  - Hoặc nhấn nút "Nhắn Zalo" để mở trực tiếp trong trình duyệt.
                 </Typography>
               </Stack>
             </Stack>
@@ -134,15 +132,15 @@ const ZaloContact = () => {
             >
               <Box
                 component="img"
-                src={qrUrl}
+                src={qrImage}
                 alt="Quét mã Zalo"
-                sx={{ width: { xs: 240, sm: 280, md: 320 }, height: "auto", borderRadius: 2 }}
+                sx={{ width: { xs: 240, sm: 280, md: 300 }, height: "auto", borderRadius: 2 }}
               />
               <Typography
                 variant="caption"
-                sx={{ color: "#475467", mt: 1.5, textAlign: "center", maxWidth: 320 }}
+                sx={{ color: "#475467", mt: 1.2, textAlign: "center", maxWidth: 320 }}
               >
-                Quét mã để mở CellphoneS Zalo OA và chat ngay.
+                Quét mã để mở và chat ngay.
               </Typography>
             </Box>
           </Stack>

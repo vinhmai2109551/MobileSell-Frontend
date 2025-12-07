@@ -5,20 +5,12 @@ import {
   Button,
   Divider,
   Menu,
-  Popover,
-  List,
-  ListItemButton,
-  ListItemAvatar,
-  Avatar,
-  ListItemText,
   MenuItem,
   IconButton,
   Stack,
   Paper,
 } from "@mui/material";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
-import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
-import { useNavigate } from "react-router-dom";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
@@ -36,8 +28,6 @@ const Home = () => {
   const [dataTest, setDataTest] = useState([]);
 
   const [anchorEl, setAnchorEl] = useState(null);
-  const [contactAnchor, setContactAnchor] = useState(null);
-  const navigate = useNavigate();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -97,20 +87,6 @@ const Home = () => {
 
   const handleNextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % banners.length);
-  };
-  // Zalo OA link (opens the CellphoneS page shown in the screenshot)
-  const ZALO_LINK = "https://zalo.me/4204593961068390595";
-  const handleContactClick = (event) => {
-    setContactAnchor(event.currentTarget);
-  };
-  const closeContactMenu = () => setContactAnchor(null);
-  const openZaloLink = () => {
-    window.open(ZALO_LINK, "_blank", "noopener,noreferrer");
-    closeContactMenu();
-  };
-  const openZaloPage = () => {
-    navigate("/zalo");
-    closeContactMenu();
   };
   const featureBadges = [
     {
@@ -251,62 +227,6 @@ const Home = () => {
             </Stack>
           </Box>
         </Box>
-
-        <Box
-          onClick={handleContactClick}
-          sx={{
-            position: "fixed",
-            right: { xs: 14, md: 28 },
-            bottom: { xs: 18, md: 28 },
-            zIndex: 1300,
-            backgroundColor: "#d3001a",
-            color: "#fff",
-            borderRadius: 999,
-            display: "flex",
-            alignItems: "center",
-            gap: 1,
-            px: 2.2,
-            py: 1.2,
-            boxShadow: "0 14px 30px rgba(211,0,26,0.4)",
-            cursor: "pointer",
-            minWidth: 120,
-            justifyContent: "center",
-            transition: "transform 150ms ease, box-shadow 150ms ease",
-            "&:hover": {
-              transform: "translateY(-2px)",
-              boxShadow: "0 18px 38px rgba(211,0,26,0.48)",
-            },
-          }}
-        >
-          <Typography fontWeight={700} sx={{ fontSize: 15 }}>
-            Liên hệ
-          </Typography>
-          <HeadsetMicIcon />
-        </Box>
-
-        <Popover
-          open={Boolean(contactAnchor)}
-          anchorEl={contactAnchor}
-          onClose={closeContactMenu}
-          anchorOrigin={{ vertical: "top", horizontal: "center" }}
-          transformOrigin={{ vertical: "bottom", horizontal: "center" }}
-          PaperProps={{ sx: { borderRadius: 2, boxShadow: "0 18px 40px rgba(0,0,0,0.25)" } }}
-        >
-          <List sx={{ minWidth: 220, p: 0.5 }}>
-            <ListItemButton onClick={openZaloLink} sx={{ borderRadius: 1.5 }}>
-              <ListItemAvatar>
-                <Avatar src="https://stc-zaloprofile.zdn.vn/pc/v4/images/logo-zalo-white.svg" sx={{ bgcolor: "#026cdf" }} />
-              </ListItemAvatar>
-              <ListItemText primary="Liên hệ Zalo" secondary="Mở OA trong tab mới" />
-            </ListItemButton>
-            <ListItemButton onClick={openZaloPage} sx={{ borderRadius: 1.5 }}>
-              <ListItemAvatar>
-                <Avatar sx={{ bgcolor: "#b10016", fontWeight: 700 }}>QR</Avatar>
-              </ListItemAvatar>
-              <ListItemText primary="Xem QR & hướng dẫn" secondary="Tới trang /zalo" />
-            </ListItemButton>
-          </List>
-        </Popover>
 
         <Stack
           direction={{ xs: "column", md: "row" }}

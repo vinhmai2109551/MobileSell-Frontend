@@ -21,14 +21,24 @@ import {
   Grid,
 } from "@mui/material";
 const Footer = () => {
+  const handleContactScroll = () => {
+    const anchor = document.getElementById("contact-section");
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <Box
       sx={{
-        background: "linear-gradient(135deg, #0b1f3b 0%, #0f2f63 100%)",
+        background: "radial-gradient(circle at 20% 20%, #192132 0%, #0c1220 45%, #060910 100%)",
         color: "#e8edf5",
         mt: 6,
-        pt: 5,
-        pb: 3,
+        pt: 6,
+        pb: 4,
+        borderTopLeftRadius: 24,
+        borderTopRightRadius: 24,
+        boxShadow: "0 -24px 60px rgba(0,0,0,0.25)",
       }}
     >
       <Box maxWidth="1200px" mx="auto" px={{ xs: 3, md: 0 }}>
@@ -40,9 +50,10 @@ const Footer = () => {
             gap: 2,
             flexWrap: "wrap",
             p: 3,
-            border: "1px solid rgba(255,255,255,0.1)",
+            border: "1px solid rgba(255,255,255,0.08)",
             borderRadius: 3,
-            background: "rgba(255,255,255,0.05)",
+            background: "linear-gradient(135deg, rgba(211,0,26,0.9), rgba(150,0,18,0.9))",
+            boxShadow: "0 18px 42px rgba(211,0,26,0.35)",
           }}
         >
           <Box>
@@ -56,18 +67,19 @@ const Footer = () => {
           <Button
             endIcon={<HeadsetMicIcon />}
             sx={{
-              backgroundColor: "#d3001a",
-              color: "#fff",
-              fontWeight: 700,
+              backgroundColor: "#fff",
+              color: "#b10016",
+              fontWeight: 800,
               borderRadius: 999,
-              px: 3,
-              py: 1.1,
+              px: 3.4,
+              py: 1.2,
               textTransform: "none",
-              boxShadow: "0 10px 30px rgba(211,0,26,0.35)",
+              boxShadow: "0 12px 28px rgba(0,0,0,0.25)",
               "&:hover": {
-                backgroundColor: "#b40017",
+                backgroundColor: "#f6f6f6",
               },
             }}
+            onClick={handleContactScroll}
           >
             Liên hệ
           </Button>

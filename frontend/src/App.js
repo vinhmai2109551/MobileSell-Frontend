@@ -11,6 +11,8 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import ShoppingCart from './pages/ShoppingCart';
 import GameCoin from './pages/GameCoin';
+import ZaloContact from './pages/ZaloContact';
+import ForgotPassword from './pages/ForgotPassword';
 function App() {
   return ( 
     <BrowserRouter>
@@ -26,6 +28,8 @@ function App() {
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/ShoppingCart" element={<ShoppingCart/>}/>
         <Route path="/gamecoin" element={<GameCoin/>}/>
+        <Route path="/zalo" element={<ZaloContact/>}/>
+        <Route path="/forgot-password" element={<ForgotPassword/>}/>
       </Routes>
       <Footer />
     </BrowserRouter>

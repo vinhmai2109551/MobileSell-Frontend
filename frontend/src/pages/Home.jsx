@@ -5,6 +5,12 @@ import {
   Button,
   Divider,
   Menu,
+  Popover,
+  List,
+  ListItemButton,
+  ListItemAvatar,
+  Avatar,
+  ListItemText,
   MenuItem,
   IconButton,
   Stack,
@@ -12,6 +18,7 @@ import {
 } from "@mui/material";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
+import { useNavigate } from "react-router-dom";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
@@ -29,6 +36,8 @@ const Home = () => {
   const [dataTest, setDataTest] = useState([]);
 
   const [anchorEl, setAnchorEl] = useState(null);
+  const [contactAnchor, setContactAnchor] = useState(null);
+  const navigate = useNavigate();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -89,6 +98,20 @@ const Home = () => {
   const handleNextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % banners.length);
   };
+  // Zalo OA link (opens the CellphoneS page shown in the screenshot)
+  const ZALO_LINK = "https://zalo.me/4204593961068390595";
+  const handleContactClick = (event) => {
+    setContactAnchor(event.currentTarget);
+  };
+  const closeContactMenu = () => setContactAnchor(null);
+  const openZaloLink = () => {
+    window.open(ZALO_LINK, "_blank", "noopener,noreferrer");
+    closeContactMenu();
+  };
+  const openZaloPage = () => {
+    navigate("/zalo");
+    closeContactMenu();
+  };
   const featureBadges = [
     {
       icon: <LocalShippingIcon fontSize="medium" />,
@@ -107,12 +130,6 @@ const Home = () => {
     },
   ];
 
-  const servicePerks = [
-    "Đội ngũ hỗ trợ luôn sẵn sàng 24/7",
-    "Tư vấn chọn máy phù hợp nhu cầu và ngân sách",
-    "Cập nhật ưu đãi độc quyền mỗi tuần",
-  ];
-
   return (
     <Box
       sx={{
@@ -124,7 +141,7 @@ const Home = () => {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: { xs: "1fr", md: "1.1fr 0.9fr" },
+            gridTemplateColumns: "1fr",
             gap: 3,
             alignItems: "stretch",
           }}
@@ -133,10 +150,11 @@ const Home = () => {
             sx={{
               position: "relative",
               overflow: "hidden",
-              borderRadius: 3,
-              backgroundColor: "#fff",
+              borderRadius: 4,
+              background: "linear-gradient(145deg, #ffffff, #f4f6ff)",
               boxShadow: "0 18px 45px rgba(15, 23, 42, 0.18)",
-              minHeight: { xs: 280, md: 360 },
+              minHeight: { xs: 280, md: 380 },
+              border: "1px solid rgba(15,23,42,0.06)",
             }}
           >
             <Box
@@ -147,7 +165,17 @@ const Home = () => {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                transition: "transform 0.5s ease-in-out",
+                transition: "transform 0.6s ease-in-out",
+                borderRadius: 4,
+              }}
+            />
+
+            <Box
+              sx={{
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(180deg, rgba(0,0,0,0.0) 45%, rgba(0,0,0,0.35) 100%)",
+                pointerEvents: "none",
               }}
             />
 
@@ -158,11 +186,15 @@ const Home = () => {
                 top: "50%",
                 left: 16,
                 transform: "translateY(-50%)",
-                color: "white",
-                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                color: "#fff",
+                backgroundColor: "rgba(0,0,0,0.55)",
+                boxShadow: "0 10px 25px rgba(0,0,0,0.25)",
+                border: "1px solid rgba(255,255,255,0.2)",
                 "&:hover": {
-                  backgroundColor: "rgba(0, 0, 0, 0.8)",
+                  backgroundColor: "rgba(0,0,0,0.75)",
                 },
+                width: 44,
+                height: 44,
               }}
             >
               <ArrowBackIos />
@@ -175,119 +207,164 @@ const Home = () => {
                 top: "50%",
                 right: 16,
                 transform: "translateY(-50%)",
-                color: "white",
-                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                color: "#fff",
+                backgroundColor: "rgba(0,0,0,0.55)",
+                boxShadow: "0 10px 25px rgba(0,0,0,0.25)",
+                border: "1px solid rgba(255,255,255,0.2)",
                 "&:hover": {
-                  backgroundColor: "rgba(0, 0, 0, 0.8)",
+                  backgroundColor: "rgba(0,0,0,0.75)",
                 },
+                width: 44,
+                height: 44,
               }}
             >
               <ArrowForwardIos />
             </IconButton>
-          </Box>
 
-          <Paper
-            sx={{
-              p: 4,
-              borderRadius: 3,
-              background: "linear-gradient(135deg, #d3001a 0%, #b10016 100%)",
-              color: "#fff",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              gap: 2.5,
-              boxShadow: "0 18px 45px rgba(211, 0, 26, 0.35)",
-            }}
-          >
-            <Typography variant="h5" fontWeight={700}>
-              Liên hệ ngay
-            </Typography>
-            <Typography variant="body1" sx={{ opacity: 0.9 }}>
-              Đội ngũ tư vấn sẵn sàng hỗ trợ chọn sản phẩm phù hợp và giữ ưu đãi
-              tốt nhất cho bạn.
-            </Typography>
-
-            <Stack spacing={1.4}>
-              {servicePerks.map((perk) => (
-                <Box key={perk} sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                  <Box
-                    sx={{
-                      width: 40,
-                      height: 40,
-                      borderRadius: "50%",
-                      backgroundColor: "rgba(255,255,255,0.16)",
-                      display: "grid",
-                      placeItems: "center",
-                    }}
-                  >
-                    <VerifiedUserIcon fontSize="small" />
-                  </Box>
-                  <Typography variant="body2" sx={{ color: "#f5f7ff" }}>
-                    {perk}
-                  </Typography>
-                </Box>
+            <Stack
+              direction="row"
+              spacing={1}
+              sx={{
+                position: "absolute",
+                bottom: 14,
+                left: "50%",
+                transform: "translateX(-50%)",
+                backgroundColor: "rgba(0,0,0,0.45)",
+                borderRadius: 999,
+                px: 1.4,
+                py: 0.6,
+                backdropFilter: "blur(6px)",
+              }}
+            >
+              {banners.map((_, idx) => (
+                <Box
+                  key={idx}
+                  sx={{
+                    width: idx === currentSlide ? 18 : 10,
+                    height: 10,
+                    borderRadius: 999,
+                    backgroundColor: idx === currentSlide ? "#fff" : "rgba(255,255,255,0.5)",
+                    transition: "all 200ms ease",
+                  }}
+                />
               ))}
             </Stack>
-
-            <Button
-              endIcon={<HeadsetMicIcon />}
-              sx={{
-                backgroundColor: "#fff",
-                color: "#b10016",
-                fontWeight: 700,
-                borderRadius: 999,
-                px: 3,
-                py: 1.2,
-                alignSelf: "flex-start",
-                textTransform: "none",
-                boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
-                "&:hover": {
-                  backgroundColor: "#f4f4f4",
-                },
-              }}
-            >
-              Liên hệ
-            </Button>
-          </Paper>
+          </Box>
         </Box>
 
-        <Stack direction={{ xs: "column", md: "row" }} spacing={2} mt={4}>
-          {featureBadges.map((badge) => (
-            <Paper
-              key={badge.title}
-              elevation={0}
-              sx={{
-                flex: 1,
-                p: 2.4,
-                display: "flex",
-                alignItems: "center",
-                gap: 1.5,
-                borderRadius: 2,
-                backgroundColor: "#fff",
-                boxShadow: "0 10px 25px rgba(15, 23, 42, 0.08)",
-              }}
-            >
-              <Box
+        <Box
+          onClick={handleContactClick}
+          sx={{
+            position: "fixed",
+            right: { xs: 14, md: 28 },
+            bottom: { xs: 18, md: 28 },
+            zIndex: 1300,
+            backgroundColor: "#d3001a",
+            color: "#fff",
+            borderRadius: 999,
+            display: "flex",
+            alignItems: "center",
+            gap: 1,
+            px: 2.2,
+            py: 1.2,
+            boxShadow: "0 14px 30px rgba(211,0,26,0.4)",
+            cursor: "pointer",
+            minWidth: 120,
+            justifyContent: "center",
+            transition: "transform 150ms ease, box-shadow 150ms ease",
+            "&:hover": {
+              transform: "translateY(-2px)",
+              boxShadow: "0 18px 38px rgba(211,0,26,0.48)",
+            },
+          }}
+        >
+          <Typography fontWeight={700} sx={{ fontSize: 15 }}>
+            Liên hệ
+          </Typography>
+          <HeadsetMicIcon />
+        </Box>
+
+        <Popover
+          open={Boolean(contactAnchor)}
+          anchorEl={contactAnchor}
+          onClose={closeContactMenu}
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+          transformOrigin={{ vertical: "bottom", horizontal: "center" }}
+          PaperProps={{ sx: { borderRadius: 2, boxShadow: "0 18px 40px rgba(0,0,0,0.25)" } }}
+        >
+          <List sx={{ minWidth: 220, p: 0.5 }}>
+            <ListItemButton onClick={openZaloLink} sx={{ borderRadius: 1.5 }}>
+              <ListItemAvatar>
+                <Avatar src="https://stc-zaloprofile.zdn.vn/pc/v4/images/logo-zalo-white.svg" sx={{ bgcolor: "#026cdf" }} />
+              </ListItemAvatar>
+              <ListItemText primary="Liên hệ Zalo" secondary="Mở OA trong tab mới" />
+            </ListItemButton>
+            <ListItemButton onClick={openZaloPage} sx={{ borderRadius: 1.5 }}>
+              <ListItemAvatar>
+                <Avatar sx={{ bgcolor: "#b10016", fontWeight: 700 }}>QR</Avatar>
+              </ListItemAvatar>
+              <ListItemText primary="Xem QR & hướng dẫn" secondary="Tới trang /zalo" />
+            </ListItemButton>
+          </List>
+        </Popover>
+
+        <Stack
+          direction={{ xs: "column", md: "row" }}
+          spacing={2}
+          mt={{ xs: 3, md: 4 }}
+          sx={{
+            background: "linear-gradient(135deg, rgba(255,255,255,0.9), rgba(244,246,255,0.9))",
+            borderRadius: 3,
+            p: { xs: 2, md: 3 },
+            boxShadow: "0 18px 45px rgba(15, 23, 42, 0.08)",
+            border: "1px solid rgba(15,23,42,0.04)",
+          }}
+        >
+          <Typography
+            variant="h6"
+            sx={{ fontWeight: 800, color: "#0f172a", minWidth: 160 }}
+          >
+            Lý do chọn chúng tôi
+          </Typography>
+          <Stack direction={{ xs: "column", md: "row" }} spacing={2} flex={1}>
+            {featureBadges.map((badge) => (
+              <Paper
+                key={badge.title}
+                elevation={0}
                 sx={{
-                  width: 46,
-                  height: 46,
-                  borderRadius: "50%",
-                  display: "grid",
-                  placeItems: "center",
-                  backgroundColor: "#f4f6ff",
-                  color: "#c3001a",
+                  flex: 1,
+                  p: 2.4,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1.5,
+                  borderRadius: 2,
+                  backgroundColor: "#fff",
+                  boxShadow: "0 10px 25px rgba(15, 23, 42, 0.06)",
+                  border: "1px solid rgba(15,23,42,0.03)",
                 }}
               >
-                {badge.icon}
-              </Box>
-              <Box>
-                <Typography fontWeight={700}>{badge.title}</Typography>
-                <Typography variant="body2" sx={{ color: "#475467" }}>
-                  {badge.subtitle}
-                </Typography>
-              </Box>
-            </Paper>
-          ))}
+                <Box
+                  sx={{
+                    width: 46,
+                    height: 46,
+                    borderRadius: "50%",
+                    display: "grid",
+                    placeItems: "center",
+                    backgroundColor: "#f4f6ff",
+                    color: "#c3001a",
+                  }}
+                >
+                  {badge.icon}
+                </Box>
+                <Box>
+                  <Typography fontWeight={700}>{badge.title}</Typography>
+                  <Typography variant="body2" sx={{ color: "#475467" }}>
+                    {badge.subtitle}
+                  </Typography>
+                </Box>
+              </Paper>
+            ))}
+          </Stack>
         </Stack>
 
         <Paper

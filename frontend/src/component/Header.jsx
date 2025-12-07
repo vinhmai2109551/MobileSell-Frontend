@@ -14,12 +14,9 @@ const Header = () => {
   const [results, setResults] = useState([])
 
   const navigate = useNavigate();
-  const handleLoginClick = () => {
-    navigate("/login");
-  }
-  const handleCartClick =() =>{
-    navigate("/ShoppingCart")
-  }
+  const handleLogoClick = () => navigate("/");
+  const handleLoginClick = () => navigate("/login");
+  const handleCartClick = () => navigate("/ShoppingCart");
 
   const handleSearchChange = (event) => {
     const value = event.target.value;
@@ -61,11 +58,14 @@ const Header = () => {
         sx={{
           display: "flex",
           alignItems: "center",
+          gap: 1.5,
+          cursor: "pointer",
         }}
+        onClick={handleLogoClick}
       >
-        <img src={shop_logo} alt="" style={{ width: 100, height: 100 }} />
-        <Typography variant="h4" fontWeight={700}>
-          PhoneGO
+        <img src={shop_logo} alt="PhoneExE" style={{ width: 80, height: 80, objectFit: "contain" }} />
+        <Typography variant="h5" fontWeight={800}>
+            PhoneExE
         </Typography>
       </Box>
       <Box

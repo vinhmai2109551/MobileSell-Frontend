@@ -2,17 +2,24 @@ import React, { useState, useEffect } from "react";
 import {
   Box,
   Button,
-  InputBase,
   Typography,
   IconButton,
   InputAdornment,
   Snackbar,
   Alert,
+  TextField,
+  Paper,
+  Stack,
+  Divider,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { login } from "../services/ProductService";
+import GoogleIcon from "@mui/icons-material/Google";
+import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -132,103 +139,167 @@ const Login = () => {
   return (
     <Box
       sx={{
-        textAlign: "center",
-        marginTop: 5,
+        minHeight: "calc(100vh - 80px)",
         display: "flex",
-        flexDirection: "column",
+        justifyContent: "center",
         alignItems: "center",
+        px: 2,
+        py: 4,
+        background: "linear-gradient(180deg, #fafafa 0%, #f5f5f7 100%)",
       }}
     >
-      <img
-        src="https://via.placeholder.com/200x100"
-        alt="Logo"
-        style={{ marginBottom: "20px" }}
-      />
-      <Box sx={{ width: "100%" }}>
-        <Typography variant="h4" sx={{ mb: 2 }}>
-          ĐĂNG NHẬP
-        </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Box sx={{ width: "45%", mb: 3 }}>
-            <InputBase
-              placeholder="Vui lòng nhập số điện thoại"
-              size="small"
-              sx={{
-                width: "100%",
-                height: 45,
-                paddingLeft: 2,
-                borderRadius: 20,
-                border: "1px solid #3E81FF",
-              }}
+      <Paper
+        elevation={8}
+        sx={{
+          width: { xs: "100%", sm: 520 },
+          p: { xs: 3, sm: 4 },
+          borderRadius: 4,
+          background: "#fff",
+          boxShadow: "0 25px 70px rgba(15, 23, 42, 0.12)",
+          border: "1px solid rgba(15,23,42,0.04)",
+        }}
+      >
+        <Stack spacing={3} alignItems="center">
+          <Box sx={{ textAlign: "center" }}>
+            <Typography variant="h4" fontWeight={900} sx={{ color: "#c3001a", letterSpacing: 0.2 }}>
+              Đăng nhập SMEMBER
+            </Typography>
+          </Box>
+
+          <Stack spacing={2} width="100%">
+            <TextField
+              fullWidth
+              variant="outlined"
+              label="Số điện thoại"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
-            />
-          </Box>
-          <Box sx={{ width: "45%", mb: 3 }}>
-            <InputBase
-              placeholder="Vui lòng nhập mật khẩu"
-              size="small"
-              type={showPassword ? "text" : "password"}
-              sx={{
-                width: "100%",
-                height: 45,
-                paddingLeft: 2,
-                borderRadius: 20,
-                border: "1px solid #3E81FF",
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <PhoneAndroidIcon fontSize="small" />
+                  </InputAdornment>
+                ),
               }}
+            />
+
+            <TextField
+              fullWidth
+              variant="outlined"
+              label="Mật khẩu"
+              type={showPassword ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockOutlinedIcon fontSize="small" />
+                  </InputAdornment>
+                ),
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={handleClickShowPassword} edge="end">
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
             />
-          </Box>
-          <Box sx={{ mb: 3, display: "flex", justifyContent: "center" }}>
-            <Typography sx={{ fontWeight: "bold", fontSize: 14 }}>
-              Chưa có tài khoản
+          </Stack>
+
+          <Stack direction="row" spacing={1} alignItems="center" sx={{ width: "100%", justifyContent: "center" }}>
+            <Typography sx={{ fontSize: 14, color: "#475467" }}>
+              Chưa có tài khoản?
             </Typography>
             <Button
               onClick={handleSignUp}
               sx={{
-                ml: 1,
-                color: "#F60000",
-                fontWeight: "bold",
+                textTransform: "none",
+                color: "#d3001a",
+                fontWeight: 800,
                 fontSize: 14,
-                top: -8,
+                px: 0,
+                minWidth: 0,
               }}
             >
               Đăng ký ngay
             </Button>
-          </Box>
+          </Stack>
+
           <Button
+            fullWidth
             sx={{
-              borderRadius: 15,
-              backgroundColor: "#33CCFF",
-              width: 160,
-              color: "white",
-              fontWeight: "bold",
+              mt: 1,
+              borderRadius: 2,
+              background: "linear-gradient(135deg, #e6001f 0%, #c4001b 100%)",
+              color: "#fff",
+              fontWeight: 800,
+              py: 1.2,
+              boxShadow: "0 16px 32px rgba(196,0,27,0.25)",
+              textTransform: "none",
+              fontSize: 15,
+              "&:hover": {
+                background: "linear-gradient(135deg, #d2001c 0%, #ad0017 100%)",
+              },
             }}
             onClick={handleLogin}
           >
             Đăng nhập
           </Button>
-        </Box>
-      </Box>
+
+          <Button
+            variant="text"
+            sx={{
+              textTransform: "none",
+              color: "#2563eb",
+              fontWeight: 700,
+              fontSize: 14,
+            }}
+            onClick={() => navigate("/forgot-password")}
+          >
+            Quên mật khẩu?
+          </Button>
+
+          <Stack direction="row" alignItems="center" spacing={1} sx={{ width: "100%" }}>
+            <Divider sx={{ flex: 1 }} />
+            <Typography variant="body2" sx={{ color: "#475467", fontWeight: 600 }}>
+              Hoặc đăng nhập bằng
+            </Typography>
+            <Divider sx={{ flex: 1 }} />
+          </Stack>
+
+          <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ width: "100%" }}>
+            <Button
+              fullWidth
+              variant="outlined"
+              sx={{
+                borderColor: "rgba(15,23,42,0.1)",
+                textTransform: "none",
+                fontWeight: 700,
+                color: "#0f172a",
+                height: 54,
+                backgroundColor: "#fff",
+              }}
+            >
+              <GoogleIcon sx={{ mr: 1 }} /> Google
+            </Button>
+            <Button
+              fullWidth
+              variant="outlined"
+              sx={{
+                borderColor: "rgba(15,23,42,0.1)",
+                textTransform: "none",
+                fontWeight: 700,
+                color: "#0f172a",
+                height: 54,
+                backgroundColor: "#fff",
+              }}
+            >
+              <ChatOutlinedIcon sx={{ mr: 1 }} /> Zalo
+            </Button>
+          </Stack>
+        </Stack>
+      </Paper>
+
       <Snackbar
         open={openSnackbar}
         autoHideDuration={3000}
